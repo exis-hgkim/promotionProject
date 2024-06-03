@@ -372,7 +372,7 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                   ),
                                                 ),
                                                 const TextSpan(
-                                                  text: ' / 300',
+                                                  text: ' / 300 ',
                                                   style: TextStyle(
                                                     fontSize: 16.0,
                                                   ),
