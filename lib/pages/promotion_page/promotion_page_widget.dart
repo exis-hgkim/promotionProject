@@ -942,7 +942,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Plus Jakarta Sans',
+                                                            'Readex Pro',
                                                         letterSpacing: 0.0,
                                                       ),
                                               unselectedTextStyle:
