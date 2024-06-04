@@ -7,7 +7,6 @@ import 'schema/util/firestore_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/promotions_record.dart';
-import 'schema/files_record.dart';
 import 'schema/participants_record.dart';
 import 'schema/participants2_record.dart';
 
@@ -20,7 +19,6 @@ export 'schema/util/schema_util.dart';
 
 export 'schema/users_record.dart';
 export 'schema/promotions_record.dart';
-export 'schema/files_record.dart';
 export 'schema/participants_record.dart';
 export 'schema/participants2_record.dart';
 
@@ -93,46 +91,6 @@ Future<List<PromotionsRecord>> queryPromotionsRecordOnce({
     queryCollectionOnce(
       PromotionsRecord.collection,
       PromotionsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-/// Functions to query FilesRecords (as a Stream and as a Future).
-Future<int> queryFilesRecordCount({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      FilesRecord.collection(parent),
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<FilesRecord>> queryFilesRecord({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      FilesRecord.collection(parent),
-      FilesRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<FilesRecord>> queryFilesRecordOnce({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      FilesRecord.collection(parent),
-      FilesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
