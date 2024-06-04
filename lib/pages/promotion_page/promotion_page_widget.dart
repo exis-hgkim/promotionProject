@@ -353,7 +353,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 11.0, 0.0, 0.0),
+                                                    0.0, 11.0, 0.0, 0.0),
                                             child: FlutterFlowRadioButton(
                                               options: [
                                                 '모든날',
@@ -910,7 +910,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 12.0, 0.0, 0.0),
+                                                    8.0, 11.0, 0.0, 0.0),
                                             child: FlutterFlowCheckboxGroup(
                                               options: const [
                                                 'IT/프로그래밍',
@@ -953,6 +953,10 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                             'Readex Pro',
                                                         letterSpacing: 0.0,
                                                       ),
+                                              labelPadding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 0.0, 0.0),
                                               itemPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                               checkboxBorderRadius:
@@ -1000,7 +1004,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 12.0, 0.0, 0.0),
+                                                    0.0, 12.0, 0.0, 0.0),
                                             child: FlutterFlowRadioButton(
                                               options: ['전체', '온라인', '오프라인']
                                                   .toList(),
