@@ -377,6 +377,14 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                             'Readex Pro',
                                                         letterSpacing: 0.0,
                                                       ),
+                                              selectedTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               buttonPosition:
                                                   RadioButtonPosition.left,
                                               direction: Axis.vertical,
@@ -902,7 +910,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 12.0, 0.0, 0.0),
+                                                    8.0, 12.0, 0.0, 0.0),
                                             child: FlutterFlowCheckboxGroup(
                                               options: const [
                                                 'IT/프로그래밍',
@@ -934,7 +942,15 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Plus Jakarta Sans',
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              unselectedTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
                                                         letterSpacing: 0.0,
                                                       ),
                                               itemPadding: const EdgeInsetsDirectional
@@ -996,6 +1012,14 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                       '전체'),
                                               optionHeight: 32.0,
                                               textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              selectedTextStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
