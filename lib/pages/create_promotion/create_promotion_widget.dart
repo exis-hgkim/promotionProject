@@ -1576,14 +1576,52 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        Text(
-                                          participantListItem.phoneNumber,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                letterSpacing: 0.0,
-                                              ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            var confirmDialogResponse =
+                                                await showDialog<bool>(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return AlertDialog(
+                                                          title: const Text('11'),
+                                                          content: const Text('123'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext,
+                                                                      false),
+                                                              child: const Text(
+                                                                  'Cancel'),
+                                                            ),
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext,
+                                                                      true),
+                                                              child: const Text(
+                                                                  'Confirm'),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    ) ??
+                                                    false;
+                                          },
+                                          child: Text(
+                                            participantListItem.phoneNumber,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                         ),
                                         Text(
                                           participantListItem.email
@@ -1674,6 +1712,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                     selectable: false,
                                     hidePaginator: false,
                                     showFirstLastButtons: false,
+                                    width: double.infinity,
                                     headingRowHeight: 50.0,
                                     dataRowHeight: 48.0,
                                     columnSpacing: 10.0,

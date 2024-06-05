@@ -886,9 +886,6 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                               selected,
                                                               onSelectChanged) =>
                                                           DataRow(
-                                                    selected: selected,
-                                                    onSelectChanged:
-                                                        onSelectChanged,
                                                     color: MaterialStateProperty
                                                         .all(
                                                       participantListIndex %
@@ -916,19 +913,60 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                       0.0,
                                                                 ),
                                                       ),
-                                                      Text(
-                                                        participantListItem
-                                                            .phoneNumber,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          var confirmDialogResponse =
+                                                              await showDialog<
+                                                                      bool>(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (alertDialogContext) {
+                                                                      return AlertDialog(
+                                                                        title: const Text(
+                                                                            '123'),
+                                                                        content:
+                                                                            const Text('123'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext, false),
+                                                                            child:
+                                                                                const Text('Cancel'),
+                                                                          ),
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext, true),
+                                                                            child:
+                                                                                const Text('Confirm'),
+                                                                          ),
+                                                                        ],
+                                                                      );
+                                                                    },
+                                                                  ) ??
+                                                                  false;
+                                                        },
+                                                        child: Text(
+                                                          participantListItem
+                                                              .phoneNumber,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
                                                       ),
                                                       Text(
                                                         participantListItem
@@ -1052,7 +1090,7 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                         .toList(),
                                                   ),
                                                   paginated: true,
-                                                  selectable: true,
+                                                  selectable: false,
                                                   hidePaginator: false,
                                                   showFirstLastButtons: false,
                                                   headingRowHeight: 50.0,
@@ -1074,16 +1112,6 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                   horizontalDividerThickness:
                                                       1.0,
                                                   addVerticalDivider: false,
-                                                  checkboxUnselectedFillColor:
-                                                      Colors.transparent,
-                                                  checkboxSelectedFillColor:
-                                                      Colors.transparent,
-                                                  checkboxCheckColor:
-                                                      const Color(0x8A000000),
-                                                  checkboxUnselectedBorderColor:
-                                                      const Color(0x8A000000),
-                                                  checkboxSelectedBorderColor:
-                                                      const Color(0x8A000000),
                                                 );
                                               },
                                             ),
