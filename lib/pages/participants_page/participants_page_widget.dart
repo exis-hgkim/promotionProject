@@ -1,13 +1,12 @@
 import '/backend/backend.dart';
-import '/components/side_bar_widget.dart';
+import '/components/dropdown_account_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'participants_page_model.dart';
 export 'participants_page_model.dart';
@@ -39,9 +38,6 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
       setState(() {});
     });
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -66,13 +62,6 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
         body: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            wrapWithModel(
-              model: _model.sideBarModel,
-              updateCallback: () => setState(() {}),
-              child: const SideBarWidget(
-                navSelected: 3,
-              ),
-            ),
             Expanded(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -83,7 +72,7 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                   ))
                     Container(
                       width: double.infinity,
-                      height: 80.0,
+                      height: 60.0,
                       decoration: const BoxDecoration(
                         color: Color(0xFF5D39EF),
                         boxShadow: [
@@ -102,15 +91,74 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                             16.0, 0.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/logo_EXIS_230x40_w.png',
-                                width: 230.0,
-                                height: 200.0,
-                                fit: BoxFit.none,
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('PromotionPage');
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/logo_EXIS_230x40_w.png',
+                                  width: 230.0,
+                                  height: 200.0,
+                                  fit: BoxFit.none,
+                                ),
+                              ),
+                            ),
+                            Builder(
+                              builder: (context) => InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await showAlignedDialog(
+                                    context: context,
+                                    isGlobal: false,
+                                    avoidOverflow: true,
+                                    targetAnchor: const AlignmentDirectional(1.0, 1.0)
+                                        .resolve(Directionality.of(context)),
+                                    followerAnchor: const AlignmentDirectional(
+                                            0.0, 0.0)
+                                        .resolve(Directionality.of(context)),
+                                    builder: (dialogContext) {
+                                      return Material(
+                                        color: Colors.transparent,
+                                        child: GestureDetector(
+                                          onTap: () => _model
+                                                  .unfocusNode.canRequestFocus
+                                              ? FocusScope.of(context)
+                                                  .requestFocus(
+                                                      _model.unfocusNode)
+                                              : FocusScope.of(context)
+                                                  .unfocus(),
+                                          child: const DropdownAccountWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+                                },
+                                child: Container(
+                                  decoration: const BoxDecoration(),
+                                  child: Container(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/_(1)_(2).jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -125,30 +173,10 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      '고객 최종명단',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineLarge
-                                          .override(
-                                            fontFamily: 'Lato',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w800,
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsets.all(16.0),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      30.0, 12.0, 30.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -157,207 +185,114 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.end,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          if (responsiveVisibility(
-                                            context: context,
-                                            phone: false,
-                                            tablet: false,
-                                          ))
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 16.0, 0.0),
-                                              child: SizedBox(
-                                                width: 270.0,
-                                                child: TextFormField(
-                                                  controller:
-                                                      _model.textController,
-                                                  focusNode:
-                                                      _model.textFieldFocusNode,
-                                                  autofocus: false,
-                                                  textCapitalization:
-                                                      TextCapitalization
-                                                          .sentences,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    hintText: 'Search users...',
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color:
-                                                              const Color(0xFF14181B),
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0xFFF1F4F8),
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 2.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    prefixIcon: const Icon(
-                                                      Icons.search_rounded,
-                                                      color: Color(0xFF57636C),
-                                                      size: 20.0,
-                                                    ),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            const Color(0xFF14181B),
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                  validator: _model
-                                                      .textControllerValidator
-                                                      .asValidator(context),
-                                                ),
-                                              ),
-                                            ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                          Expanded(
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 0.0, 16.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () {
-                                                  print('Button pressed ...');
-                                                },
-                                                text: '명단 다운로드',
-                                                icon: const Icon(
-                                                  Icons.download_sharp,
-                                                  size: 30.0,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          24.0, 0.0, 24.0, 0.0),
-                                                  iconPadding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 5.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .success,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            color: Colors.white,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                  elevation: 3.0,
-                                                  borderSide: const BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
+                                                      0.0, 0.0, 20.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    '최종 고객 명단',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 21.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          6.0),
-                                                ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    30.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          '총 인원',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        '325명',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                          Material(
-                                            color: Colors.transparent,
-                                            elevation: 3.0,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(6.0),
-                                            ),
-                                            child: Container(
-                                              decoration: BoxDecoration(
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 0.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: '고객 명단 다운로드',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        11.0, 0.0, 11.0, 0.0),
+                                                iconPadding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 5.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: Colors.white,
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: const BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
                                                 borderRadius:
                                                     BorderRadius.circular(6.0),
-                                              ),
-                                              child: FlutterFlowIconButton(
-                                                borderColor: Colors.transparent,
-                                                borderRadius: 6.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 40.0,
-                                                fillColor: FFAppState().navOpen
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .tertiary,
-                                                icon: Icon(
-                                                  Icons.filter_list_alt,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  size: 24.0,
-                                                ),
-                                                onPressed: () async {
-                                                  if (FFAppState().navOpen ==
-                                                      true) {
-                                                    FFAppState().navOpen =
-                                                        false;
-                                                    setState(() {});
-                                                  } else {
-                                                    FFAppState().navOpen = true;
-                                                    setState(() {});
-                                                  }
-                                                },
                                               ),
                                             ),
                                           ),
@@ -367,7 +302,7 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 16.0, 0.0, 0.0),
+                                                  0.0, 25.0, 0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
                                               final participantList = _model
@@ -388,6 +323,8 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                       softWrap: true,
                                                       child: Text(
                                                         '이름',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -400,6 +337,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.05,
                                                   ),
                                                   DataColumn2(
                                                     label:
@@ -407,6 +349,8 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                       softWrap: true,
                                                       child: Text(
                                                         '전화번호',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -419,6 +363,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.13,
                                                   ),
                                                   DataColumn2(
                                                     label:
@@ -426,6 +375,8 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                       softWrap: true,
                                                       child: Text(
                                                         '이메일',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -438,6 +389,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.2,
                                                   ),
                                                   DataColumn2(
                                                     label:
@@ -445,6 +401,8 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                       softWrap: true,
                                                       child: Text(
                                                         '회사',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -457,6 +415,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.1,
                                                   ),
                                                   DataColumn2(
                                                     label:
@@ -464,6 +427,8 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                       softWrap: true,
                                                       child: Text(
                                                         '직급',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -476,6 +441,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.07,
                                                   ),
                                                   DataColumn2(
                                                     label:
@@ -483,6 +453,8 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                       softWrap: true,
                                                       child: Text(
                                                         '부서',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -495,6 +467,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.1,
                                                   ),
                                                   DataColumn2(
                                                     label:
@@ -502,6 +479,8 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                       softWrap: true,
                                                       child: Text(
                                                         '담당업무',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -514,13 +493,20 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.1,
                                                   ),
                                                   DataColumn2(
                                                     label:
                                                         DefaultTextStyle.merge(
                                                       softWrap: true,
                                                       child: Text(
-                                                        '개인정보 보관 시작일',
+                                                        '개인정보\n동의여부',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -533,13 +519,20 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.09,
                                                   ),
                                                   DataColumn2(
                                                     label:
                                                         DefaultTextStyle.merge(
                                                       softWrap: true,
                                                       child: Text(
-                                                        '개인정보 사용여부',
+                                                        '보관\n만료일',
+                                                        textAlign:
+                                                            TextAlign.center,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .labelLarge
@@ -552,6 +545,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             ),
                                                       ),
                                                     ),
+                                                    fixedWidth:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width *
+                                                            0.15,
                                                   ),
                                                 ],
                                                 dataRowBuilder:
@@ -596,7 +594,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                           ),
                                                     ),
                                                     Text(
-                                                      participantListItem.email,
+                                                      participantListItem.email
+                                                          .maybeHandleOverflow(
+                                                        maxChars: 19,
+                                                        replacement: '…',
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -608,7 +610,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                     ),
                                                     Text(
                                                       participantListItem
-                                                          .company,
+                                                          .company
+                                                          .maybeHandleOverflow(
+                                                        maxChars: 5,
+                                                        replacement: '…',
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -619,7 +625,11 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                           ),
                                                     ),
                                                     Text(
-                                                      participantListItem.rank,
+                                                      participantListItem.rank
+                                                          .maybeHandleOverflow(
+                                                        maxChars: 3,
+                                                        replacement: '…',
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -629,35 +639,30 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
+                                                    SelectionArea(
+                                                        child: Text(
+                                                      participantListItem
+                                                          .department
+                                                          .maybeHandleOverflow(
+                                                        maxChars: 5,
+                                                        replacement: '…',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    )),
                                                     Text(
                                                       participantListItem
-                                                          .department,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      participantListItem
-                                                          .responsibility,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      dateTimeFormat(
-                                                          'yyyy/MM/dd || kk:mm',
-                                                          participantListItem
-                                                              .infoStartDate!),
+                                                          .responsibility
+                                                          .maybeHandleOverflow(
+                                                        maxChars: 3,
+                                                        replacement: '…',
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -678,6 +683,20 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
+                                                    Text(
+                                                      dateTimeFormat(
+                                                          'yyMMdd',
+                                                          participantListItem
+                                                              .infoStartDate!),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
                                                   ]
                                                       .map((c) => DataCell(c))
                                                       .toList(),
@@ -686,9 +705,9 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                                 selectable: false,
                                                 hidePaginator: false,
                                                 showFirstLastButtons: false,
-                                                headingRowHeight: 56.0,
+                                                headingRowHeight: 50.0,
                                                 dataRowHeight: 48.0,
-                                                columnSpacing: 20.0,
+                                                columnSpacing: 5.0,
                                                 headingRowColor:
                                                     const Color(0x434B39EF),
                                                 borderRadius:
@@ -712,427 +731,6 @@ class _ParticipantsPageWidgetState extends State<ParticipantsPageWidget> {
                                 ),
                               ),
                             ],
-                          ),
-                        ),
-                        Material(
-                          color: Colors.transparent,
-                          elevation: 3.0,
-                          child: Container(
-                            width: FFAppState().navOpen == true ? 300.0 : 0.0,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          2.0, 43.0, 2.0, 16.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 24.0, 16.0, 24.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(4.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: FaIcon(
-                                                      FontAwesomeIcons
-                                                          .clipboardList,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .tertiary,
-                                                      size: 36.0,
-                                                    ),
-                                                  ),
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        '선택한 행사 목록',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .headlineSmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: const Color(
-                                                                  0xFF15161E),
-                                                              fontSize: 22.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 8.0, 0.0, 0.0),
-                                                child: ListView(
-                                                  padding: EdgeInsets.zero,
-                                                  shrinkWrap: true,
-                                                  scrollDirection:
-                                                      Axis.vertical,
-                                                  children: [
-                                                    Container(
-                                                      width: 100.0,
-                                                      decoration: const BoxDecoration(
-                                                        color: Colors.white,
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    12.0,
-                                                                    0.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Theme(
-                                                              data: ThemeData(
-                                                                checkboxTheme:
-                                                                    CheckboxThemeData(
-                                                                  shape:
-                                                                      RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            4.0),
-                                                                  ),
-                                                                ),
-                                                                unselectedWidgetColor:
-                                                                    const Color(
-                                                                        0xFFE0E3E7),
-                                                              ),
-                                                              child: Checkbox(
-                                                                value: _model
-                                                                        .checkboxValue1 ??=
-                                                                    true,
-                                                                onChanged:
-                                                                    (newValue) async {
-                                                                  setState(() =>
-                                                                      _model.checkboxValue1 =
-                                                                          newValue!);
-                                                                },
-                                                                side:
-                                                                    const BorderSide(
-                                                                  width: 2,
-                                                                  color: Color(
-                                                                      0xFFE0E3E7),
-                                                                ),
-                                                                activeColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                checkColor:
-                                                                    Colors
-                                                                        .white,
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      '2024 함께 성장하는 보육인을 위한 C&I DAY 첫번째 이야기',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Plus Jakarta Sans',
-                                                                            color:
-                                                                                const Color(0xFF15161E),
-                                                                            fontSize:
-                                                                                16.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      width: 100.0,
-                                                      decoration: const BoxDecoration(
-                                                        color: Colors.white,
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    12.0,
-                                                                    0.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Theme(
-                                                              data: ThemeData(
-                                                                checkboxTheme:
-                                                                    CheckboxThemeData(
-                                                                  shape:
-                                                                      RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            4.0),
-                                                                  ),
-                                                                ),
-                                                                unselectedWidgetColor:
-                                                                    const Color(
-                                                                        0xFF606A85),
-                                                              ),
-                                                              child: Checkbox(
-                                                                value: _model
-                                                                        .checkboxValue2 ??=
-                                                                    false,
-                                                                onChanged:
-                                                                    (newValue) async {
-                                                                  setState(() =>
-                                                                      _model.checkboxValue2 =
-                                                                          newValue!);
-                                                                },
-                                                                side:
-                                                                    const BorderSide(
-                                                                  width: 2,
-                                                                  color: Color(
-                                                                      0xFF606A85),
-                                                                ),
-                                                                activeColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                checkColor:
-                                                                    Colors
-                                                                        .white,
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      'Microsoft Build 2024 - After Party with MVP',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Plus Jakarta Sans',
-                                                                            color:
-                                                                                const Color(0xFF15161E),
-                                                                            fontSize:
-                                                                                16.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      width: 100.0,
-                                                      decoration: const BoxDecoration(
-                                                        color: Colors.white,
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    12.0,
-                                                                    0.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Theme(
-                                                              data: ThemeData(
-                                                                checkboxTheme:
-                                                                    CheckboxThemeData(
-                                                                  shape:
-                                                                      RoundedRectangleBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            4.0),
-                                                                  ),
-                                                                ),
-                                                                unselectedWidgetColor:
-                                                                    const Color(
-                                                                        0xFF606A85),
-                                                              ),
-                                                              child: Checkbox(
-                                                                value: _model
-                                                                        .checkboxValue3 ??=
-                                                                    false,
-                                                                onChanged:
-                                                                    (newValue) async {
-                                                                  setState(() =>
-                                                                      _model.checkboxValue3 =
-                                                                          newValue!);
-                                                                },
-                                                                side:
-                                                                    const BorderSide(
-                                                                  width: 2,
-                                                                  color: Color(
-                                                                      0xFF606A85),
-                                                                ),
-                                                                activeColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                checkColor:
-                                                                    Colors
-                                                                        .white,
-                                                              ),
-                                                            ),
-                                                            Expanded(
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      'ESG기반을 위한 임팩트 조직결성과 임팩트 비즈니스모델 개발',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Plus Jakarta Sans',
-                                                                            color:
-                                                                                const Color(0xFF15161E),
-                                                                            fontSize:
-                                                                                16.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w500,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
                         ),
                       ],
