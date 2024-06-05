@@ -1102,7 +1102,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  '참여박식',
+                                                  '참여방식',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1175,7 +1175,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                         child: SizedBox(
                                           width:
                                               MediaQuery.sizeOf(context).width *
-                                                  0.5,
+                                                  0.35,
                                           child: TextFormField(
                                             controller: _model.textController5,
                                             focusNode:
