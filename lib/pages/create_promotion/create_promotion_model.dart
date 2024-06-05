@@ -46,7 +46,9 @@ class CreatePromotionModel extends FlutterFlowModel<CreatePromotionWidget> {
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
   // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController;
+  FormFieldController<String>? radioButtonValueController1;
+  // State field(s) for RadioButton widget.
+  FormFieldController<String>? radioButtonValueController2;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode5;
   TextEditingController? textController5;
@@ -90,5 +92,6 @@ class CreatePromotionModel extends FlutterFlowModel<CreatePromotionWidget> {
   }
 
   /// Additional helper methods.
-  String? get radioButtonValue => radioButtonValueController?.value;
+  String? get radioButtonValue1 => radioButtonValueController1?.value;
+  String? get radioButtonValue2 => radioButtonValueController2?.value;
 }
