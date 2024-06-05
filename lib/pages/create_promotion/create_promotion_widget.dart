@@ -351,222 +351,15 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                              MainAxisAlignment.spaceBetween,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            if (_model.radioButtonValue == '하루')
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  final datePicked1Date =
-                                                      await showDatePicker(
-                                                    context: context,
-                                                    initialDate:
-                                                        getCurrentTimestamp,
-                                                    firstDate:
-                                                        getCurrentTimestamp,
-                                                    lastDate: DateTime(2050),
-                                                    builder: (context, child) {
-                                                      return wrapInMaterialDatePickerTheme(
-                                                        context,
-                                                        child!,
-                                                        headerBackgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        headerForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .info,
-                                                        headerTextStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  fontSize:
-                                                                      32.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                        pickerBackgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryBackground,
-                                                        pickerForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        selectedDateTimeBackgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        selectedDateTimeForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .info,
-                                                        actionButtonForegroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        iconSize: 24.0,
-                                                      );
-                                                    },
-                                                  );
-
-                                                  if (datePicked1Date !=
-                                                      null) {
-                                                    safeSetState(() {
-                                                      _model.datePicked1 =
-                                                          DateTime(
-                                                        datePicked1Date.year,
-                                                        datePicked1Date.month,
-                                                        datePicked1Date.day,
-                                                      );
-                                                    });
-                                                  }
-                                                  setState(() {
-                                                    _model.textController2
-                                                            ?.text =
-                                                        dateTimeFormat(
-                                                            'yyyy-MM-dd',
-                                                            _model.datePicked1);
-                                                  });
-                                                },
-                                                child: Container(
-                                                  width: 130.0,
-                                                  height: 43.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    shape: BoxShape.rectangle,
-                                                    border: Border.all(
-                                                      color: const Color(0xFFE0E3E7),
-                                                      width: 1.0,
-                                                    ),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 0.0,
-                                                                3.0, 0.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Expanded(
-                                                          child: Align(
-                                                            alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0, 0.0),
-                                                            child:
-                                                                TextFormField(
-                                                              controller: _model
-                                                                  .textController2,
-                                                              focusNode: _model
-                                                                  .textFieldFocusNode2,
-                                                              autofocus: true,
-                                                              readOnly: true,
-                                                              obscureText:
-                                                                  false,
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                isDense: true,
-                                                                alignLabelWithHint:
-                                                                    false,
-                                                                hintText:
-                                                                    '행사 일자',
-                                                                hintStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w300,
-                                                                    ),
-                                                                enabledBorder:
-                                                                    InputBorder
-                                                                        .none,
-                                                                focusedBorder:
-                                                                    InputBorder
-                                                                        .none,
-                                                                errorBorder:
-                                                                    InputBorder
-                                                                        .none,
-                                                                focusedErrorBorder:
-                                                                    InputBorder
-                                                                        .none,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .labelMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    fontSize:
-                                                                        12.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              maxLines: null,
-                                                              validator: _model
-                                                                  .textController2Validator
-                                                                  .asValidator(
-                                                                      context),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              const AlignmentDirectional(
-                                                                  1.0, 0.0),
-                                                          child: Icon(
-                                                            Icons
-                                                                .calendar_today_rounded,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryText,
-                                                            size: 16.0,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            if (_model.radioButtonValue ==
-                                                '시작-종료일')
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                if (_model.radioButtonValue1 ==
+                                                    '하루')
                                                   InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -577,7 +370,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      final datePicked2Date =
+                                                      final datePicked1Date =
                                                           await showDatePicker(
                                                         context: context,
                                                         initialDate:
@@ -639,27 +432,27 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                         },
                                                       );
 
-                                                      if (datePicked2Date !=
+                                                      if (datePicked1Date !=
                                                           null) {
                                                         safeSetState(() {
-                                                          _model.datePicked2 =
+                                                          _model.datePicked1 =
                                                               DateTime(
-                                                            datePicked2Date
+                                                            datePicked1Date
                                                                 .year,
-                                                            datePicked2Date
+                                                            datePicked1Date
                                                                 .month,
-                                                            datePicked2Date
+                                                            datePicked1Date
                                                                 .day,
                                                           );
                                                         });
                                                       }
                                                       setState(() {
-                                                        _model.textController3
+                                                        _model.textController2
                                                                 ?.text =
                                                             dateTimeFormat(
                                                                 'yyyy-MM-dd',
                                                                 _model
-                                                                    .datePicked2);
+                                                                    .datePicked1);
                                                       });
                                                     },
                                                     child: Container(
@@ -675,9 +468,8 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                         shape:
                                                             BoxShape.rectangle,
                                                         border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
+                                                          color:
+                                                              const Color(0xFFE0E3E7),
                                                           width: 1.0,
                                                         ),
                                                       ),
@@ -708,9 +500,9 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                                 child:
                                                                     TextFormField(
                                                                   controller: _model
-                                                                      .textController3,
+                                                                      .textController2,
                                                                   focusNode: _model
-                                                                      .textFieldFocusNode3,
+                                                                      .textFieldFocusNode2,
                                                                   autofocus:
                                                                       true,
                                                                   readOnly:
@@ -724,7 +516,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                                     alignLabelWithHint:
                                                                         false,
                                                                     hintText:
-                                                                        '시작일',
+                                                                        '행사 일자',
                                                                     hintStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .labelMedium
@@ -768,7 +560,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                                   maxLines:
                                                                       null,
                                                                   validator: _model
-                                                                      .textController3Validator
+                                                                      .textController2Validator
                                                                       .asValidator(
                                                                           context),
                                                                 ),
@@ -792,286 +584,587 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                  Text(
-                                                    '-',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      final datePicked3Date =
-                                                          await showDatePicker(
-                                                        context: context,
-                                                        initialDate:
-                                                            getCurrentTimestamp,
-                                                        firstDate:
-                                                            getCurrentTimestamp,
-                                                        lastDate:
-                                                            DateTime(2050),
-                                                        builder:
-                                                            (context, child) {
-                                                          return wrapInMaterialDatePickerTheme(
-                                                            context,
-                                                            child!,
-                                                            headerBackgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                            headerForegroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .info,
-                                                            headerTextStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Outfit',
-                                                                      fontSize:
-                                                                          32.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                            pickerBackgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                            pickerForegroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                            selectedDateTimeBackgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                            selectedDateTimeForegroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .info,
-                                                            actionButtonForegroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                            iconSize: 24.0,
-                                                          );
-                                                        },
-                                                      );
-
-                                                      if (datePicked3Date !=
-                                                          null) {
-                                                        safeSetState(() {
-                                                          _model.datePicked3 =
-                                                              DateTime(
-                                                            datePicked3Date
-                                                                .year,
-                                                            datePicked3Date
-                                                                .month,
-                                                            datePicked3Date
-                                                                .day,
-                                                          );
-                                                        });
-                                                      }
-                                                      setState(() {
-                                                        _model.textController4
-                                                                ?.text =
-                                                            dateTimeFormat(
-                                                                'yyyy-MM-dd',
-                                                                _model
-                                                                    .datePicked3);
-                                                      });
-                                                    },
-                                                    child: Container(
-                                                      width: 130.0,
-                                                      height: 43.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    3.0,
-                                                                    0.0,
-                                                                    3.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Expanded(
-                                                              child: Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        -1.0,
-                                                                        0.0),
-                                                                child:
-                                                                    TextFormField(
-                                                                  controller: _model
-                                                                      .textController4,
-                                                                  focusNode: _model
-                                                                      .textFieldFocusNode4,
-                                                                  autofocus:
-                                                                      true,
-                                                                  readOnly:
-                                                                      true,
-                                                                  obscureText:
-                                                                      false,
-                                                                  decoration:
-                                                                      InputDecoration(
-                                                                    isDense:
-                                                                        true,
-                                                                    hintText:
-                                                                        '종료일',
-                                                                    hintStyle: FlutterFlowTheme.of(
+                                                if (_model.radioButtonValue1 ==
+                                                    '시작-종료일')
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          final datePicked2Date =
+                                                              await showDatePicker(
+                                                            context: context,
+                                                            initialDate:
+                                                                getCurrentTimestamp,
+                                                            firstDate:
+                                                                getCurrentTimestamp,
+                                                            lastDate:
+                                                                DateTime(2050),
+                                                            builder: (context,
+                                                                child) {
+                                                              return wrapInMaterialDatePickerTheme(
+                                                                context,
+                                                                child!,
+                                                                headerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyMedium
+                                                                        .primary,
+                                                                headerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                headerTextStyle:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineLarge
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                              'Outfit',
                                                                           fontSize:
-                                                                              12.0,
+                                                                              32.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
-                                                                              FontWeight.w300,
+                                                                              FontWeight.w600,
                                                                         ),
-                                                                    enabledBorder:
-                                                                        InputBorder
-                                                                            .none,
-                                                                    focusedBorder:
-                                                                        InputBorder
-                                                                            .none,
-                                                                    errorBorder:
-                                                                        InputBorder
-                                                                            .none,
-                                                                    focusedErrorBorder:
-                                                                        InputBorder
-                                                                            .none,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        fontSize:
-                                                                            12.0,
-                                                                        letterSpacing:
-                                                                            0.0,
+                                                                pickerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                pickerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                selectedDateTimeBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                selectedDateTimeForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                actionButtonForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                iconSize: 24.0,
+                                                              );
+                                                            },
+                                                          );
+
+                                                          if (datePicked2Date !=
+                                                              null) {
+                                                            safeSetState(() {
+                                                              _model.datePicked2 =
+                                                                  DateTime(
+                                                                datePicked2Date
+                                                                    .year,
+                                                                datePicked2Date
+                                                                    .month,
+                                                                datePicked2Date
+                                                                    .day,
+                                                              );
+                                                            });
+                                                          }
+                                                          setState(() {
+                                                            _model.textController3
+                                                                    ?.text =
+                                                                dateTimeFormat(
+                                                                    'yyyy-MM-dd',
+                                                                    _model
+                                                                        .datePicked2);
+                                                          });
+                                                        },
+                                                        child: Container(
+                                                          width: 130.0,
+                                                          height: 43.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        3.0,
+                                                                        0.0,
+                                                                        3.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          _model
+                                                                              .textController3,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .textFieldFocusNode3,
+                                                                      autofocus:
+                                                                          true,
+                                                                      readOnly:
+                                                                          true,
+                                                                      obscureText:
+                                                                          false,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        isDense:
+                                                                            true,
+                                                                        alignLabelWithHint:
+                                                                            false,
+                                                                        hintText:
+                                                                            '시작일',
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w300,
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            InputBorder.none,
+                                                                        focusedBorder:
+                                                                            InputBorder.none,
+                                                                        errorBorder:
+                                                                            InputBorder.none,
+                                                                        focusedErrorBorder:
+                                                                            InputBorder.none,
                                                                       ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  maxLines:
-                                                                      null,
-                                                                  validator: _model
-                                                                      .textController4Validator
-                                                                      .asValidator(
-                                                                          context),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      maxLines:
+                                                                          null,
+                                                                      validator: _model
+                                                                          .textController3Validator
+                                                                          .asValidator(
+                                                                              context),
+                                                                    ),
+                                                                  ),
                                                                 ),
-                                                              ),
+                                                                Align(
+                                                                  alignment:
+                                                                      const AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .calendar_today_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    size: 16.0,
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      1.0, 0.0),
-                                                              child: FaIcon(
-                                                                FontAwesomeIcons
-                                                                    .calendar,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                size: 16.0,
-                                                              ),
-                                                            ),
-                                                          ],
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
+                                                      Text(
+                                                        '-',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          final datePicked3Date =
+                                                              await showDatePicker(
+                                                            context: context,
+                                                            initialDate:
+                                                                getCurrentTimestamp,
+                                                            firstDate:
+                                                                getCurrentTimestamp,
+                                                            lastDate:
+                                                                DateTime(2050),
+                                                            builder: (context,
+                                                                child) {
+                                                              return wrapInMaterialDatePickerTheme(
+                                                                context,
+                                                                child!,
+                                                                headerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                headerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                headerTextStyle:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Outfit',
+                                                                          fontSize:
+                                                                              32.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                pickerBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                pickerForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                selectedDateTimeBackgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                selectedDateTimeForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                actionButtonForegroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                iconSize: 24.0,
+                                                              );
+                                                            },
+                                                          );
+
+                                                          if (datePicked3Date !=
+                                                              null) {
+                                                            safeSetState(() {
+                                                              _model.datePicked3 =
+                                                                  DateTime(
+                                                                datePicked3Date
+                                                                    .year,
+                                                                datePicked3Date
+                                                                    .month,
+                                                                datePicked3Date
+                                                                    .day,
+                                                              );
+                                                            });
+                                                          }
+                                                          setState(() {
+                                                            _model.textController4
+                                                                    ?.text =
+                                                                dateTimeFormat(
+                                                                    'yyyy-MM-dd',
+                                                                    _model
+                                                                        .datePicked3);
+                                                          });
+                                                        },
+                                                        child: Container(
+                                                          width: 130.0,
+                                                          height: 43.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            shape: BoxShape
+                                                                .rectangle,
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
+                                                              width: 1.0,
+                                                            ),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        3.0,
+                                                                        0.0,
+                                                                        3.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Expanded(
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          _model
+                                                                              .textController4,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .textFieldFocusNode4,
+                                                                      autofocus:
+                                                                          true,
+                                                                      readOnly:
+                                                                          true,
+                                                                      obscureText:
+                                                                          false,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        isDense:
+                                                                            true,
+                                                                        hintText:
+                                                                            '종료일',
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Readex Pro',
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w300,
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            InputBorder.none,
+                                                                        focusedBorder:
+                                                                            InputBorder.none,
+                                                                        errorBorder:
+                                                                            InputBorder.none,
+                                                                        focusedErrorBorder:
+                                                                            InputBorder.none,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Readex Pro',
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      maxLines:
+                                                                          null,
+                                                                      validator: _model
+                                                                          .textController4Validator
+                                                                          .asValidator(
+                                                                              context),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      const AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .calendar,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    size: 16.0,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ].divide(
+                                                        const SizedBox(width: 5.0)),
                                                   ),
-                                                ].divide(const SizedBox(width: 5.0)),
-                                              ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: FlutterFlowRadioButton(
-                                                options:
-                                                    ['하루', '시작-종료일'].toList(),
-                                                onChanged: (val) =>
-                                                    setState(() {}),
-                                                controller: _model
-                                                        .radioButtonValueController ??=
-                                                    FormFieldController<String>(
-                                                        '하루'),
-                                                optionHeight: 32.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: FlutterFlowRadioButton(
+                                                    options: ['하루', '시작-종료일']
+                                                        .toList(),
+                                                    onChanged: (val) =>
+                                                        setState(() {}),
+                                                    controller: _model
+                                                            .radioButtonValueController1 ??=
+                                                        FormFieldController<
+                                                            String>('하루'),
+                                                    optionHeight: 32.0,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                selectedTextStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
+                                                    selectedTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                    buttonPosition:
+                                                        RadioButtonPosition
+                                                            .left,
+                                                    direction: Axis.horizontal,
+                                                    radioButtonColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
+                                                    inactiveRadioButtonColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    toggleable: false,
+                                                    horizontalAlignment:
+                                                        WrapAlignment.start,
+                                                    verticalAlignment:
+                                                        WrapCrossAlignment
+                                                            .start,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  '참여박식',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: FlutterFlowRadioButton(
+                                                    options: ['온라인', '오프라인']
+                                                        .toList(),
+                                                    onChanged: (val) =>
+                                                        setState(() {}),
+                                                    controller: _model
+                                                            .radioButtonValueController2 ??=
+                                                        FormFieldController<
+                                                            String>('온라인'),
+                                                    optionHeight: 32.0,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                buttonPosition:
-                                                    RadioButtonPosition.left,
-                                                direction: Axis.horizontal,
-                                                radioButtonColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                                inactiveRadioButtonColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                toggleable: false,
-                                                horizontalAlignment:
-                                                    WrapAlignment.start,
-                                                verticalAlignment:
-                                                    WrapCrossAlignment.start,
-                                              ),
+                                                    selectedTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                    buttonPosition:
+                                                        RadioButtonPosition
+                                                            .left,
+                                                    direction: Axis.horizontal,
+                                                    radioButtonColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
+                                                    inactiveRadioButtonColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    toggleable: false,
+                                                    horizontalAlignment:
+                                                        WrapAlignment.start,
+                                                    verticalAlignment:
+                                                        WrapCrossAlignment
+                                                            .start,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
@@ -1079,85 +1172,92 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             15.0, 15.0, 15.0, 0.0),
-                                        child: TextFormField(
-                                          controller: _model.textController5,
-                                          focusNode: _model.textFieldFocusNode5,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            isDense: false,
-                                            labelText: '주최사명을 기입해주세요.',
-                                            labelStyle: FlutterFlowTheme.of(
-                                                    context)
+                                        child: SizedBox(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.5,
+                                          child: TextFormField(
+                                            controller: _model.textController5,
+                                            focusNode:
+                                                _model.textFieldFocusNode5,
+                                            autofocus: true,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              isDense: false,
+                                              labelText: '주최사명을 기입해주세요.',
+                                              labelStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w300,
+                                                  ),
+                                              alignLabelWithHint: false,
+                                              hintStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w300,
                                                 ),
-                                            alignLabelWithHint: false,
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Readex Pro',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
+                                            validator: _model
+                                                .textController5Validator
+                                                .asValidator(context),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          validator: _model
-                                              .textController5Validator
-                                              .asValidator(context),
                                         ),
                                       ),
                                       Padding(
