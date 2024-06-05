@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -109,7 +110,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PromotionDetailPage',
           path: '/promotionDetailPage',
-          builder: (context, params) => const PromotionDetailPageWidget(),
+          asyncParams: {
+            'promotionDetail':
+                getDoc(['promotions'], PromotionsRecord.fromSnapshot),
+          },
+          builder: (context, params) => PromotionDetailPageWidget(
+            promotionDetail: params.getParam(
+              'promotionDetail',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

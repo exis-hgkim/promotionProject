@@ -44,6 +44,12 @@ class FFAppState extends ChangeNotifier {
     _navOpen = value;
     prefs.setBool('ff_navOpen', value);
   }
+
+  bool _radioCondition = false;
+  bool get radioCondition => _radioCondition;
+  set radioCondition(bool value) {
+    _radioCondition = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
