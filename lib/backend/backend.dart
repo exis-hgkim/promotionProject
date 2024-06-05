@@ -9,6 +9,7 @@ import 'schema/users_record.dart';
 import 'schema/promotions_record.dart';
 import 'schema/participants_record.dart';
 import 'schema/participants2_record.dart';
+import 'schema/sample_data_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -21,6 +22,7 @@ export 'schema/users_record.dart';
 export 'schema/promotions_record.dart';
 export 'schema/participants_record.dart';
 export 'schema/participants2_record.dart';
+export 'schema/sample_data_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -165,6 +167,43 @@ Future<List<Participants2Record>> queryParticipants2RecordOnce({
     queryCollectionOnce(
       Participants2Record.collection,
       Participants2Record.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query SampleDataRecords (as a Stream and as a Future).
+Future<int> querySampleDataRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SampleDataRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SampleDataRecord>> querySampleDataRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SampleDataRecord.collection,
+      SampleDataRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SampleDataRecord>> querySampleDataRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SampleDataRecord.collection,
+      SampleDataRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
