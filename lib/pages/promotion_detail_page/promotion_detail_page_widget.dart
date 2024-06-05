@@ -886,6 +886,9 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                               selected,
                                                               onSelectChanged) =>
                                                           DataRow(
+                                                    selected: selected,
+                                                    onSelectChanged:
+                                                        onSelectChanged,
                                                     color: MaterialStateProperty
                                                         .all(
                                                       participantListIndex %
@@ -1049,7 +1052,7 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                         .toList(),
                                                   ),
                                                   paginated: true,
-                                                  selectable: false,
+                                                  selectable: true,
                                                   hidePaginator: false,
                                                   showFirstLastButtons: false,
                                                   headingRowHeight: 50.0,
@@ -1071,6 +1074,16 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                   horizontalDividerThickness:
                                                       1.0,
                                                   addVerticalDivider: false,
+                                                  checkboxUnselectedFillColor:
+                                                      Colors.transparent,
+                                                  checkboxSelectedFillColor:
+                                                      Colors.transparent,
+                                                  checkboxCheckColor:
+                                                      const Color(0x8A000000),
+                                                  checkboxUnselectedBorderColor:
+                                                      const Color(0x8A000000),
+                                                  checkboxSelectedBorderColor:
+                                                      const Color(0x8A000000),
                                                 );
                                               },
                                             ),

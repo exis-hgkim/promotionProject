@@ -586,8 +586,8 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                            textAlign:
-                                                                TextAlign.start,
+                                                            textAlign: TextAlign
+                                                                .center,
                                                             maxLines: null,
                                                             validator: _model
                                                                 .textController2Validator
@@ -787,8 +787,8 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                            textAlign:
-                                                                TextAlign.start,
+                                                            textAlign: TextAlign
+                                                                .center,
                                                             maxLines: null,
                                                             validator: _model
                                                                 .textController3Validator
