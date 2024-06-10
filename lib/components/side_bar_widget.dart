@@ -471,7 +471,6 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                         onPressed: () async {
                           FFAppState().darkMode = true;
                           FFAppState().update(() {});
-                          setDarkModeSetting(context, ThemeMode.dark);
                         },
                       ),
                     if (FFAppState().darkMode == true)
@@ -489,7 +488,6 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                         onPressed: () async {
                           FFAppState().darkMode = false;
                           FFAppState().update(() {});
-                          setDarkModeSetting(context, ThemeMode.light);
                         },
                       ),
                     if ((_model.compactView == false) &&
