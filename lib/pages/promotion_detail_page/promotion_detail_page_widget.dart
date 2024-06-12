@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/components/side_bar_widget.dart';
-import '/components/users_detail_pop_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -1893,600 +1892,309 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                       .primaryBackground,
                                                             ),
                                                             cells: [
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .name,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .name,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .phoneNumber,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .phoneNumber,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .email
-                                                                        .maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          19,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .email
+                                                                      .maybeHandleOverflow(
+                                                                    maxChars:
+                                                                        19,
+                                                                    replacement:
+                                                                        '…',
                                                                   ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .company
-                                                                        .maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          5,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .company
+                                                                      .maybeHandleOverflow(
+                                                                    maxChars: 5,
+                                                                    replacement:
+                                                                        '…',
                                                                   ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .rank
-                                                                        .maybeHandleOverflow(
-                                                                            maxChars:
-                                                                                3),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .rank
+                                                                      .maybeHandleOverflow(
+                                                                          maxChars:
+                                                                              3),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .department
-                                                                        .maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          3,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .department
+                                                                      .maybeHandleOverflow(
+                                                                    maxChars: 3,
+                                                                    replacement:
+                                                                        '…',
                                                                   ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .responsibility
-                                                                        .maybeHandleOverflow(
-                                                                      maxChars:
-                                                                          5,
-                                                                      replacement:
-                                                                          '…',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .responsibility
+                                                                      .maybeHandleOverflow(
+                                                                    maxChars: 5,
+                                                                    replacement:
+                                                                        '…',
                                                                   ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    participantListItem
-                                                                        .useYn,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  participantListItem
+                                                                      .useYn,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
-                                                              Builder(
-                                                                builder:
-                                                                    (context) =>
-                                                                        InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                UsersDetailPopWidget(
-                                                                              promotionList: widget.promotionDetail!,
-                                                                            ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        setState(
-                                                                            () {}));
-                                                                  },
-                                                                  child: Text(
-                                                                    dateTimeFormat(
-                                                                        'yyMMdd',
-                                                                        participantListItem
-                                                                            .infoStartDate!),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  context.pushNamed(
+                                                                      'UserDetailPage');
+                                                                },
+                                                                child: Text(
+                                                                  dateTimeFormat(
+                                                                      'yyMMdd',
+                                                                      participantListItem
+                                                                          .infoStartDate!),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
                                                                 ),
                                                               ),
                                                             ]
