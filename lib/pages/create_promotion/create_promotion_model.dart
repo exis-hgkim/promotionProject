@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -26,6 +27,8 @@ class CreatePromotionModel extends FlutterFlowModel<CreatePromotionWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in CreatePromotion widget.
   List<Participants2Record>? fPtpList;
+  // Model for SideBar component.
+  late SideBarModel sideBarModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -47,12 +50,12 @@ class CreatePromotionModel extends FlutterFlowModel<CreatePromotionWidget> {
   String? Function(BuildContext, String?)? textController4Validator;
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController1;
+  // State field(s) for RadioButton widget.
+  FormFieldController<String>? radioButtonValueController2;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode5;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for RadioButton widget.
-  FormFieldController<String>? radioButtonValueController2;
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   List<String>? get choiceChipsValues => choiceChipsValueController?.value;
@@ -67,11 +70,14 @@ class CreatePromotionModel extends FlutterFlowModel<CreatePromotionWidget> {
       FlutterFlowDataTableController<Participants2Record>();
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    sideBarModel = createModel(context, () => SideBarModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    sideBarModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
@@ -110,6 +111,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'Plus Jakarta Sans'),
                                                   ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: const BorderSide(
@@ -155,6 +160,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         keyboardType:
                                             TextInputType.emailAddress,
@@ -188,6 +197,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'Plus Jakarta Sans'),
                                                   ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: const BorderSide(
@@ -249,6 +262,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         validator: _model
                                             .passwordTextControllerValidator
@@ -295,6 +312,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         elevation: 3.0,
                                         borderSide: const BorderSide(
@@ -331,6 +352,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                                 ),
                                             mouseCursor:
                                                 SystemMouseCursors.click,
@@ -349,6 +374,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                       ),
                                     ),
