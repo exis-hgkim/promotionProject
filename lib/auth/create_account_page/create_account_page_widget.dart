@@ -84,7 +84,7 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/logo_EXIS_SoftewareEngineering1.jpg',
+                                  'assets/images/logo_EXIS_230x40_w.jpg',
                                   width: 370.0,
                                   height: 200.0,
                                   fit: BoxFit.contain,
