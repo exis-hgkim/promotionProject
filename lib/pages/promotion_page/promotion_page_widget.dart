@@ -30,8 +30,11 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
       await queryPromotionsRecordOnce();
     });
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
+    _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -155,131 +158,366 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  SizedBox(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.25,
-                                                    child: TextFormField(
-                                                      controller:
-                                                          _model.textController,
-                                                      focusNode: _model
-                                                          .textFieldFocusNode,
-                                                      autofocus: false,
-                                                      textCapitalization:
-                                                          TextCapitalization
-                                                              .sentences,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        isDense: true,
-                                                        hintText:
-                                                            'Search users...',
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodySmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: const Color(
-                                                                      0xFF14181B),
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Readex Pro'),
-                                                                ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0xFFF1F4F8),
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0x00000000),
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        errorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0x00000000),
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        focusedErrorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0x00000000),
-                                                            width: 2.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        suffixIcon: const Icon(
-                                                          Icons.search_rounded,
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      final datePickedDate =
+                                                          await showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            getCurrentTimestamp,
+                                                        firstDate:
+                                                            getCurrentTimestamp,
+                                                        lastDate:
+                                                            DateTime(2050),
+                                                        builder:
+                                                            (context, child) {
+                                                          return wrapInMaterialDatePickerTheme(
+                                                            context,
+                                                            child!,
+                                                            headerBackgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                            headerForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .info,
+                                                            headerTextStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineLargeFamily,
+                                                                      fontSize:
+                                                                          32.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).headlineLargeFamily),
+                                                                    ),
+                                                            pickerBackgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                            pickerForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                            selectedDateTimeBackgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                            selectedDateTimeForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .info,
+                                                            actionButtonForegroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                            iconSize: 24.0,
+                                                          );
+                                                        },
+                                                      );
+
+                                                      if (datePickedDate !=
+                                                          null) {
+                                                        safeSetState(() {
+                                                          _model.datePicked =
+                                                              DateTime(
+                                                            datePickedDate
+                                                                .year,
+                                                            datePickedDate
+                                                                .month,
+                                                            datePickedDate.day,
+                                                          );
+                                                        });
+                                                      }
+                                                      setState(() {
+                                                        _model.textController1
+                                                                ?.text =
+                                                            dateTimeFormat(
+                                                                'yyyy-MM-dd',
+                                                                _model
+                                                                    .datePicked);
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.25,
+                                                      height: 43.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        shape:
+                                                            BoxShape.rectangle,
+                                                        border: Border.all(
                                                           color:
-                                                              Color(0xFF757575),
-                                                          size: 22.0,
+                                                              const Color(0xFFF1F4F8),
+                                                          width: 1.0,
                                                         ),
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            color: const Color(
-                                                                0xFF14181B),
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Readex Pro'),
-                                                          ),
-                                                      validator: _model
-                                                          .textControllerValidator
-                                                          .asValidator(context),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Expanded(
+                                                              child:
+                                                                  TextFormField(
+                                                                controller: _model
+                                                                    .textController1,
+                                                                focusNode: _model
+                                                                    .textFieldFocusNode1,
+                                                                autofocus: true,
+                                                                readOnly: true,
+                                                                obscureText:
+                                                                    false,
+                                                                decoration:
+                                                                    InputDecoration(
+                                                                  isDense: true,
+                                                                  alignLabelWithHint:
+                                                                      false,
+                                                                  hintText:
+                                                                      '기간을 선택하세요.',
+                                                                  hintStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w300,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                      ),
+                                                                  enabledBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                  focusedBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                  errorBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                  focusedErrorBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMediumFamily,
+                                                                      fontSize:
+                                                                          12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                    ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .start,
+                                                                maxLines: null,
+                                                                validator: _model
+                                                                    .textController1Validator
+                                                                    .asValidator(
+                                                                        context),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .calendar_today_rounded,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                size: 16.0,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ],
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: SizedBox(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.25,
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .textController2,
+                                                        focusNode: _model
+                                                            .textFieldFocusNode2,
+                                                        autofocus: false,
+                                                        textCapitalization:
+                                                            TextCapitalization
+                                                                .sentences,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          isDense: true,
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: const Color(
+                                                                        0xFF57636C),
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            'Readex Pro'),
+                                                                  ),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0xFFF1F4F8),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          errorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          suffixIcon: const Icon(
+                                                            Icons
+                                                                .search_rounded,
+                                                            color: Color(
+                                                                0xFF757575),
+                                                            size: 22.0,
+                                                          ),
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              color: const Color(
+                                                                  0xFF14181B),
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Readex Pro'),
+                                                            ),
+                                                        validator: _model
+                                                            .textController2Validator
+                                                            .asValidator(
+                                                                context),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ].divide(const SizedBox(width: 10.0)),
                                               ),
                                             ],
                                           ),
