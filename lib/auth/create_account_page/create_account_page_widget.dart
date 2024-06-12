@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'create_account_page_model.dart';
 export 'create_account_page_model.dart';
 
@@ -102,6 +103,8 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                         fontSize: 36.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('Plus Jakarta Sans'),
                                       ),
                                 ),
                               ),
@@ -127,6 +130,9 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
@@ -171,6 +177,8 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
@@ -200,6 +208,9 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
@@ -259,6 +270,8 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                     validator: _model
                                         .passwordTextControllerValidator
@@ -289,6 +302,9 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'Plus Jakarta Sans'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
@@ -349,6 +365,8 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                     minLines: 1,
                                     validator: _model
@@ -407,6 +425,8 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                     elevation: 3.0,
                                     borderSide: const BorderSide(
@@ -440,6 +460,10 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'Plus Jakarta Sans'),
                                             ),
                                         mouseCursor: SystemMouseCursors.click,
                                         recognizer: TapGestureRecognizer()
@@ -456,6 +480,8 @@ class _CreateAccountPageWidgetState extends State<CreateAccountPageWidget> {
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Plus Jakarta Sans'),
                                         ),
                                   ),
                                 ),

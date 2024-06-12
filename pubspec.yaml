@@ -25,7 +25,6 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  aligned_dialog: 0.0.6
   auto_size_text: 3.0.0
   cached_network_image: 3.3.1
   cloud_firestore: 4.15.7
@@ -33,6 +32,7 @@ dependencies:
   cloud_firestore_web: 3.10.7
   collection: 1.18.0
   data_table_2: 2.5.10
+  dropdown_button2: 2.3.9
   firebase_auth: 4.17.7
   firebase_auth_platform_interface: 7.1.7
   firebase_auth_web: 5.9.7
@@ -115,6 +115,10 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
+  fonts:
+    - family: Icomoon
+      fonts:
+        - asset: assets/fonts/icomoon.ttf
 
   
   # An image asset can refer to one or more resolution-specific "variants", see
