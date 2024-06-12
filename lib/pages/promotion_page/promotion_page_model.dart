@@ -12,15 +12,20 @@ class PromotionPageModel extends FlutterFlowModel<PromotionPageWidget> {
 
   // Model for SideBar component.
   late SideBarModel sideBarModel;
-  DateTime? datePicked;
+  DateTime? datePicked1;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
+  DateTime? datePicked2;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode3;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
 
   @override
   void initState(BuildContext context) {
@@ -35,5 +40,8 @@ class PromotionPageModel extends FlutterFlowModel<PromotionPageWidget> {
 
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
+
+    textFieldFocusNode3?.dispose();
+    textController3?.dispose();
   }
 }
