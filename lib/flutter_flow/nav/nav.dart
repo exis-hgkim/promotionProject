@@ -120,6 +120,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.Document,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'UserDetailPage',
+          path: '/userDetailPage',
+          builder: (context, params) => const UserDetailPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
