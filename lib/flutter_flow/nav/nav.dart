@@ -125,6 +125,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'UserDetailPage',
           path: '/userDetailPage',
           builder: (context, params) => const UserDetailPageWidget(),
+        ),
+        FFRoute(
+          name: 'UpdatePromotion',
+          path: '/updatePromotion',
+          builder: (context, params) => const UpdatePromotionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

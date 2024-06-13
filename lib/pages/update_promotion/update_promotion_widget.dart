@@ -12,25 +12,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'create_promotion_model.dart';
-export 'create_promotion_model.dart';
+import 'update_promotion_model.dart';
+export 'update_promotion_model.dart';
 
-class CreatePromotionWidget extends StatefulWidget {
-  const CreatePromotionWidget({super.key});
+class UpdatePromotionWidget extends StatefulWidget {
+  const UpdatePromotionWidget({super.key});
 
   @override
-  State<CreatePromotionWidget> createState() => _CreatePromotionWidgetState();
+  State<UpdatePromotionWidget> createState() => _UpdatePromotionWidgetState();
 }
 
-class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
-  late CreatePromotionModel _model;
+class _UpdatePromotionWidgetState extends State<UpdatePromotionWidget> {
+  late UpdatePromotionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreatePromotionModel());
+    _model = createModel(context, () => UpdatePromotionModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -192,7 +192,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  '행사 등록',
+                                                  '행사 수정',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -572,7 +572,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                                                 const Duration(milliseconds: 2000),
                                                                                 () => setState(() {}),
                                                                               ),
-                                                                              autofocus: false,
+                                                                              autofocus: true,
                                                                               readOnly: true,
                                                                               obscureText: false,
                                                                               decoration: InputDecoration(
@@ -914,48 +914,44 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                                                                 MainAxisAlignment.spaceBetween,
                                                                             children: [
                                                                               Expanded(
-                                                                                child: Align(
-                                                                                  alignment: const AlignmentDirectional(-1.0, 0.0),
-                                                                                  child: TextFormField(
-                                                                                    controller: _model.textController4,
-                                                                                    focusNode: _model.textFieldFocusNode4,
-                                                                                    onChanged: (_) => EasyDebounce.debounce(
-                                                                                      '_model.textController4',
-                                                                                      const Duration(milliseconds: 2000),
-                                                                                      () => setState(() {}),
-                                                                                    ),
-                                                                                    autofocus: true,
-                                                                                    readOnly: true,
-                                                                                    obscureText: false,
-                                                                                    decoration: InputDecoration(
-                                                                                      isDense: false,
-                                                                                      enabledBorder: InputBorder.none,
-                                                                                      focusedBorder: InputBorder.none,
-                                                                                      errorBorder: InputBorder.none,
-                                                                                      focusedErrorBorder: InputBorder.none,
-                                                                                      suffixIcon: _model.textController4!.text.isNotEmpty
-                                                                                          ? InkWell(
-                                                                                              onTap: () async {
-                                                                                                _model.textController4?.clear();
-                                                                                                setState(() {});
-                                                                                              },
-                                                                                              child: const Icon(
-                                                                                                Icons.clear,
-                                                                                                size: 20.0,
-                                                                                              ),
-                                                                                            )
-                                                                                          : null,
-                                                                                    ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                          fontSize: 14.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                        ),
-                                                                                    textAlign: TextAlign.center,
-                                                                                    maxLines: null,
-                                                                                    validator: _model.textController4Validator.asValidator(context),
+                                                                                child: TextFormField(
+                                                                                  controller: _model.textController4,
+                                                                                  focusNode: _model.textFieldFocusNode4,
+                                                                                  onChanged: (_) => EasyDebounce.debounce(
+                                                                                    '_model.textController4',
+                                                                                    const Duration(milliseconds: 2000),
+                                                                                    () => setState(() {}),
                                                                                   ),
+                                                                                  autofocus: true,
+                                                                                  readOnly: true,
+                                                                                  obscureText: false,
+                                                                                  decoration: InputDecoration(
+                                                                                    isDense: false,
+                                                                                    enabledBorder: InputBorder.none,
+                                                                                    focusedBorder: InputBorder.none,
+                                                                                    errorBorder: InputBorder.none,
+                                                                                    focusedErrorBorder: InputBorder.none,
+                                                                                    suffixIcon: _model.textController4!.text.isNotEmpty
+                                                                                        ? InkWell(
+                                                                                            onTap: () async {
+                                                                                              _model.textController4?.clear();
+                                                                                              setState(() {});
+                                                                                            },
+                                                                                            child: const Icon(
+                                                                                              Icons.clear,
+                                                                                              size: 20.0,
+                                                                                            ),
+                                                                                          )
+                                                                                        : null,
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                        letterSpacing: 0.0,
+                                                                                        useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                      ),
+                                                                                  textAlign: TextAlign.center,
+                                                                                  maxLines: null,
+                                                                                  validator: _model.textController4Validator.asValidator(context),
                                                                                 ),
                                                                               ),
                                                                               Align(
@@ -2602,21 +2598,9 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                           16.0, 12.0, 16.0, 12.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
-                                          context.pushNamed(
-                                            'PromotionPage',
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  const TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType.fade,
-                                                duration:
-                                                    Duration(milliseconds: 0),
-                                              ),
-                                            },
-                                          );
+                                          context.safePop();
                                         },
-                                        text: '등 록',
+                                        text: '수 정',
                                         options: FFButtonOptions(
                                           width: 100.0,
                                           height: 40.0,
@@ -2650,17 +2634,7 @@ class _CreatePromotionWidgetState extends State<CreatePromotionWidget> {
                                   ),
                                   FFButtonWidget(
                                     onPressed: () async {
-                                      context.pushNamed(
-                                        'PromotionPage',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                          ),
-                                        },
-                                      );
+                                      context.safePop();
                                     },
                                     text: '취 소',
                                     options: FFButtonOptions(

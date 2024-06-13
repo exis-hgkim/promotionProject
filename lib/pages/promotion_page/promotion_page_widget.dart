@@ -260,6 +260,13 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                     'yyyy-MM-dd',
                                                                     _model
                                                                         .datePicked1);
+                                                            _model.textController1
+                                                                    ?.selection =
+                                                                TextSelection.collapsed(
+                                                                    offset: _model
+                                                                        .textController1!
+                                                                        .text
+                                                                        .length);
                                                           });
                                                         },
                                                         child: Container(
@@ -267,7 +274,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .width *
-                                                                  0.17,
+                                                                  0.19,
                                                           height: 43.0,
                                                           decoration:
                                                               BoxDecoration(
@@ -306,159 +313,97 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                       .center,
                                                               children: [
                                                                 Expanded(
-                                                                  child:
-                                                                      TextFormField(
-                                                                    controller:
-                                                                        _model
-                                                                            .textController1,
-                                                                    focusNode:
-                                                                        _model
-                                                                            .textFieldFocusNode1,
-                                                                    onChanged: (_) =>
-                                                                        EasyDebounce
-                                                                            .debounce(
-                                                                      '_model.textController1',
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              2000),
-                                                                      () => setState(
-                                                                          () {}),
-                                                                    ),
-                                                                    autofocus:
-                                                                        true,
-                                                                    readOnly:
-                                                                        true,
-                                                                    obscureText:
-                                                                        false,
-                                                                    decoration:
-                                                                        InputDecoration(
-                                                                      isDense:
-                                                                          true,
-                                                                      alignLabelWithHint:
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          _model
+                                                                              .textController1,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .textFieldFocusNode1,
+                                                                      onChanged:
+                                                                          (_) =>
+                                                                              EasyDebounce.debounce(
+                                                                        '_model.textController1',
+                                                                        const Duration(
+                                                                            milliseconds:
+                                                                                2000),
+                                                                        () => setState(
+                                                                            () {}),
+                                                                      ),
+                                                                      autofocus:
                                                                           false,
-                                                                      hintText:
-                                                                          '시작일',
-                                                                      hintStyle: FlutterFlowTheme.of(
+                                                                      readOnly:
+                                                                          true,
+                                                                      obscureText:
+                                                                          false,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        isDense:
+                                                                            false,
+                                                                        alignLabelWithHint:
+                                                                            false,
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w300,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            InputBorder.none,
+                                                                        focusedBorder:
+                                                                            InputBorder.none,
+                                                                        errorBorder:
+                                                                            InputBorder.none,
+                                                                        focusedErrorBorder:
+                                                                            InputBorder.none,
+                                                                        suffixIcon: _model.textController1!.text.isNotEmpty
+                                                                            ? InkWell(
+                                                                                onTap: () async {
+                                                                                  _model.textController1?.clear();
+                                                                                  setState(() {});
+                                                                                },
+                                                                                child: const Icon(
+                                                                                  Icons.clear,
+                                                                                  color: Color(0xFF757575),
+                                                                                  size: 20.0,
+                                                                                ),
+                                                                              )
+                                                                            : null,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
                                                                             fontSize:
-                                                                                12.0,
+                                                                                14.0,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
                                                                             useGoogleFonts:
                                                                                 GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                           ),
-                                                                      enabledBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      focusedBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      errorBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      focusedErrorBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      suffixIcon: _model
-                                                                              .textController1!
-                                                                              .text
-                                                                              .isNotEmpty
-                                                                          ? InkWell(
-                                                                              onTap: () async {
-                                                                                _model.textController1?.clear();
-                                                                                setState(() {});
-                                                                              },
-                                                                              child: const Icon(
-                                                                                Icons.clear,
-                                                                                size: 20.0,
-                                                                              ),
-                                                                            )
-                                                                          : null,
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      maxLines:
+                                                                          null,
+                                                                      validator: _model
+                                                                          .textController1Validator
+                                                                          .asValidator(
+                                                                              context),
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
-                                                                          fontSize:
-                                                                              12.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
-                                                                        ),
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .start,
-                                                                    maxLines:
-                                                                        null,
-                                                                    validator: _model
-                                                                        .textController1Validator
-                                                                        .asValidator(
-                                                                            context),
                                                                   ),
                                                                 ),
                                                                 Align(
@@ -593,6 +538,13 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                     'yyyy-MM-dd',
                                                                     _model
                                                                         .datePicked2);
+                                                            _model.textController2
+                                                                    ?.selection =
+                                                                TextSelection.collapsed(
+                                                                    offset: _model
+                                                                        .textController2!
+                                                                        .text
+                                                                        .length);
                                                           });
                                                         },
                                                         child: Container(
@@ -600,7 +552,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .width *
-                                                                  0.17,
+                                                                  0.19,
                                                           height: 43.0,
                                                           decoration:
                                                               BoxDecoration(
@@ -639,159 +591,96 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                       .center,
                                                               children: [
                                                                 Expanded(
-                                                                  child:
-                                                                      TextFormField(
-                                                                    controller:
-                                                                        _model
-                                                                            .textController2,
-                                                                    focusNode:
-                                                                        _model
-                                                                            .textFieldFocusNode2,
-                                                                    onChanged: (_) =>
-                                                                        EasyDebounce
-                                                                            .debounce(
-                                                                      '_model.textController2',
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              2000),
-                                                                      () => setState(
-                                                                          () {}),
-                                                                    ),
-                                                                    autofocus:
-                                                                        true,
-                                                                    readOnly:
-                                                                        true,
-                                                                    obscureText:
-                                                                        false,
-                                                                    decoration:
-                                                                        InputDecoration(
-                                                                      isDense:
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        const AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          _model
+                                                                              .textController2,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .textFieldFocusNode2,
+                                                                      onChanged:
+                                                                          (_) =>
+                                                                              EasyDebounce.debounce(
+                                                                        '_model.textController2',
+                                                                        const Duration(
+                                                                            milliseconds:
+                                                                                2000),
+                                                                        () => setState(
+                                                                            () {}),
+                                                                      ),
+                                                                      autofocus:
                                                                           true,
-                                                                      alignLabelWithHint:
+                                                                      readOnly:
+                                                                          true,
+                                                                      obscureText:
                                                                           false,
-                                                                      hintText:
-                                                                          '종료일',
-                                                                      hintStyle: FlutterFlowTheme.of(
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        isDense:
+                                                                            false,
+                                                                        alignLabelWithHint:
+                                                                            false,
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w300,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            InputBorder.none,
+                                                                        focusedBorder:
+                                                                            InputBorder.none,
+                                                                        errorBorder:
+                                                                            InputBorder.none,
+                                                                        focusedErrorBorder:
+                                                                            InputBorder.none,
+                                                                        suffixIcon: _model.textController2!.text.isNotEmpty
+                                                                            ? InkWell(
+                                                                                onTap: () async {
+                                                                                  _model.textController2?.clear();
+                                                                                  setState(() {});
+                                                                                },
+                                                                                child: const Icon(
+                                                                                  Icons.clear,
+                                                                                  size: 20.0,
+                                                                                ),
+                                                                              )
+                                                                            : null,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryText,
                                                                             fontSize:
-                                                                                12.0,
+                                                                                14.0,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
                                                                             useGoogleFonts:
                                                                                 GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                           ),
-                                                                      enabledBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      focusedBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      errorBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      focusedErrorBorder:
-                                                                          const OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              Color(0x00000000),
-                                                                          width:
-                                                                              1.0,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          topLeft:
-                                                                              Radius.circular(4.0),
-                                                                          topRight:
-                                                                              Radius.circular(4.0),
-                                                                        ),
-                                                                      ),
-                                                                      suffixIcon: _model
-                                                                              .textController2!
-                                                                              .text
-                                                                              .isNotEmpty
-                                                                          ? InkWell(
-                                                                              onTap: () async {
-                                                                                _model.textController2?.clear();
-                                                                                setState(() {});
-                                                                              },
-                                                                              child: const Icon(
-                                                                                Icons.clear,
-                                                                                size: 20.0,
-                                                                              ),
-                                                                            )
-                                                                          : null,
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      maxLines:
+                                                                          null,
+                                                                      validator: _model
+                                                                          .textController2Validator
+                                                                          .asValidator(
+                                                                              context),
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
-                                                                          fontSize:
-                                                                              12.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
-                                                                        ),
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .start,
-                                                                    maxLines:
-                                                                        null,
-                                                                    validator: _model
-                                                                        .textController2Validator
-                                                                        .asValidator(
-                                                                            context),
                                                                   ),
                                                                 ),
                                                                 Align(
@@ -855,7 +744,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .normal,
+                                                                            .w300,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
@@ -921,25 +810,28 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                             size: 22.0,
                                                           ),
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              color: const Color(
-                                                                  0xFF14181B),
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                              useGoogleFonts: GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'Readex Pro'),
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Readex Pro'),
+                                                                ),
                                                         validator: _model
                                                             .textController3Validator
                                                             .asValidator(
@@ -1083,6 +975,12 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                                               dynamic>{
                                                                             'promotionDetail':
                                                                                 listViewPromotionsRecord,
+                                                                            kTransitionInfoKey:
+                                                                                const TransitionInfo(
+                                                                              hasTransition: true,
+                                                                              transitionType: PageTransitionType.fade,
+                                                                              duration: Duration(milliseconds: 0),
+                                                                            ),
                                                                           },
                                                                         );
                                                                       },

@@ -269,7 +269,16 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('CreatePromotion');
+                              context.pushNamed(
+                                'CreatePromotion',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
                             },
                             child: Container(
                               width: double.infinity,
