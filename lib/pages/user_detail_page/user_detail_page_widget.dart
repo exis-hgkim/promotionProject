@@ -234,7 +234,10 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -315,7 +318,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                       color: const Color(
                                                                           0xFF57636C),
                                                                       fontSize:
-                                                                          16.0,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       useGoogleFonts: GoogleFonts
@@ -342,6 +345,8 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        fontSize:
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
@@ -379,7 +384,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                         fontFamily:
                                                                             FlutterFlowTheme.of(context).labelMediumFamily,
                                                                         fontSize:
-                                                                            16.0,
+                                                                            14.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
@@ -451,7 +456,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                       color: const Color(
                                                                           0xFF57636C),
                                                                       fontSize:
-                                                                          16.0,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       useGoogleFonts: GoogleFonts
@@ -478,6 +483,8 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primary,
+                                                                        fontSize:
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
@@ -520,7 +527,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                         FlutterFlowTheme.of(context)
                                                                             .labelMediumFamily,
                                                                     fontSize:
-                                                                        16.0,
+                                                                        14.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     useGoogleFonts: GoogleFonts
@@ -588,7 +595,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                           FlutterFlowTheme.of(context)
                                                                               .labelMediumFamily,
                                                                       fontSize:
-                                                                          16.0,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       useGoogleFonts: GoogleFonts
@@ -613,6 +620,8 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                       .override(
                                                                         fontFamily:
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        fontSize:
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
@@ -634,7 +643,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            14.0,
+                                                                            10.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
@@ -642,16 +651,14 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                   '부서',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyMedium
+                                                                      .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                        color: const Color(
-                                                                            0xFF57636C),
+                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
-                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                       ),
                                                                 ),
                                                               ),
@@ -671,6 +678,8 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                       .override(
                                                                         fontFamily:
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        fontSize:
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
@@ -705,7 +714,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .labelMediumFamily,
-                                                                fontSize: 16.0,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 useGoogleFonts: GoogleFonts
@@ -732,6 +741,8 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   useGoogleFonts: GoogleFonts

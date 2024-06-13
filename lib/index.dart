@@ -12,3 +12,5 @@ export '/pages/promotion_detail_page/promotion_detail_page_widget.dart'
     show PromotionDetailPageWidget;
 export '/pages/user_detail_page/user_detail_page_widget.dart'
     show UserDetailPageWidget;
+export '/pages/update_promotion/update_promotion_widget.dart'
+    show UpdatePromotionWidget;

@@ -524,7 +524,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                               .transparent,
                                                           onTap: () async {
                                                             context.pushNamed(
-                                                                'CreatePromotion');
+                                                              'UpdatePromotion',
+                                                              extra: <String,
+                                                                  dynamic>{
+                                                                kTransitionInfoKey:
+                                                                    const TransitionInfo(
+                                                                  hasTransition:
+                                                                      true,
+                                                                  transitionType:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          0),
+                                                                ),
+                                                              },
+                                                            );
                                                           },
                                                           child: Container(
                                                             decoration:
@@ -1904,8 +1919,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -1935,8 +1964,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -1966,8 +2009,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -2003,8 +2060,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -2039,8 +2110,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -2073,8 +2158,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -2109,8 +2208,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -2145,8 +2258,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   participantListItem
@@ -2176,8 +2303,22 @@ class _PromotionDetailPageWidgetState extends State<PromotionDetailPageWidget> {
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  context.pushNamed(
-                                                                      'UserDetailPage');
+                                                                  context
+                                                                      .pushNamed(
+                                                                    'UserDetailPage',
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      kTransitionInfoKey:
+                                                                          const TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 0),
+                                                                      ),
+                                                                    },
+                                                                  );
                                                                 },
                                                                 child: Text(
                                                                   dateTimeFormat(
