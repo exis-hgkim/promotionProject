@@ -128,7 +128,7 @@ class _UserDetailPageWidgetState extends State<UserDetailPageWidget> {
                               model: _model.sideBarModel,
                               updateCallback: () => setState(() {}),
                               child: const SideBarWidget(
-                                navSelected: 2,
+                                navSelected: 5,
                               ),
                             ),
                             Expanded(
