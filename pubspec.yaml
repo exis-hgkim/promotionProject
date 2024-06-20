@@ -31,9 +31,11 @@ dependencies:
   cloud_firestore_platform_interface: 6.1.8
   cloud_firestore_web: 3.10.7
   collection: 1.18.0
+  csv: ^5.0.0
   data_table_2: 2.5.10
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
+  file_picker: ^4.2.0
   firebase_auth: 4.17.7
   firebase_auth_platform_interface: 7.1.7
   firebase_auth_web: 5.9.7
@@ -43,6 +45,7 @@ dependencies:
   firebase_performance: 0.9.3+16
   firebase_performance_platform_interface: 0.1.4+24
   firebase_performance_web: 0.1.4+24
+  firebase_storage: ^11.0.16
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.1
   font_awesome_flutter: 10.6.0

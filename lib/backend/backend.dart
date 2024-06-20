@@ -7,10 +7,10 @@ import 'schema/util/firestore_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/promotions_record.dart';
-import 'schema/participants_record.dart';
 import 'schema/participants2_record.dart';
-import 'schema/sample_data_record.dart';
-import 'schema/files_record.dart';
+import 'schema/field_record.dart';
+import 'schema/participants_record.dart';
+import 'schema/pdf_files_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -21,10 +21,10 @@ export 'schema/util/schema_util.dart';
 
 export 'schema/users_record.dart';
 export 'schema/promotions_record.dart';
-export 'schema/participants_record.dart';
 export 'schema/participants2_record.dart';
-export 'schema/sample_data_record.dart';
-export 'schema/files_record.dart';
+export 'schema/field_record.dart';
+export 'schema/participants_record.dart';
+export 'schema/pdf_files_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -100,43 +100,6 @@ Future<List<PromotionsRecord>> queryPromotionsRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query ParticipantsRecords (as a Stream and as a Future).
-Future<int> queryParticipantsRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      ParticipantsRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<ParticipantsRecord>> queryParticipantsRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      ParticipantsRecord.collection,
-      ParticipantsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<ParticipantsRecord>> queryParticipantsRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      ParticipantsRecord.collection,
-      ParticipantsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
 /// Functions to query Participants2Records (as a Stream and as a Future).
 Future<int> queryParticipants2RecordCount({
   Query Function(Query)? queryBuilder,
@@ -174,75 +137,118 @@ Future<List<Participants2Record>> queryParticipants2RecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query SampleDataRecords (as a Stream and as a Future).
-Future<int> querySampleDataRecordCount({
+/// Functions to query FieldRecords (as a Stream and as a Future).
+Future<int> queryFieldRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      SampleDataRecord.collection,
+      FieldRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<SampleDataRecord>> querySampleDataRecord({
+Stream<List<FieldRecord>> queryFieldRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      SampleDataRecord.collection,
-      SampleDataRecord.fromSnapshot,
+      FieldRecord.collection,
+      FieldRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<SampleDataRecord>> querySampleDataRecordOnce({
+Future<List<FieldRecord>> queryFieldRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      SampleDataRecord.collection,
-      SampleDataRecord.fromSnapshot,
+      FieldRecord.collection,
+      FieldRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query FilesRecords (as a Stream and as a Future).
-Future<int> queryFilesRecordCount({
+/// Functions to query ParticipantsRecords (as a Stream and as a Future).
+Future<int> queryParticipantsRecordCount({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      FilesRecord.collection,
+      ParticipantsRecord.collection(parent),
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<FilesRecord>> queryFilesRecord({
+Stream<List<ParticipantsRecord>> queryParticipantsRecord({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      FilesRecord.collection,
-      FilesRecord.fromSnapshot,
+      ParticipantsRecord.collection(parent),
+      ParticipantsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<FilesRecord>> queryFilesRecordOnce({
+Future<List<ParticipantsRecord>> queryParticipantsRecordOnce({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      FilesRecord.collection,
-      FilesRecord.fromSnapshot,
+      ParticipantsRecord.collection(parent),
+      ParticipantsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query PdfFilesRecords (as a Stream and as a Future).
+Future<int> queryPdfFilesRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PdfFilesRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PdfFilesRecord>> queryPdfFilesRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PdfFilesRecord.collection(parent),
+      PdfFilesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PdfFilesRecord>> queryPdfFilesRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PdfFilesRecord.collection(parent),
+      PdfFilesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

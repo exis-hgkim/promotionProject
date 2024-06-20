@@ -155,7 +155,7 @@ class _UpdatePromotionWidgetState extends State<UpdatePromotionWidget> {
                         model: _model.sideBarModel,
                         updateCallback: () => setState(() {}),
                         child: const SideBarWidget(
-                          navSelected: 6,
+                          navSelected: 4,
                         ),
                       ),
                       Expanded(

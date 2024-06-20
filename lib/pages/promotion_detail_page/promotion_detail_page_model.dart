@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/components/side_bar_widget.dart';
-import '/flutter_flow/flutter_flow_data_table.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'promotion_detail_page_widget.dart' show PromotionDetailPageWidget;
@@ -37,9 +36,6 @@ class PromotionDetailPageModel
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // State field(s) for PaginatedDataTable widget.
-  final paginatedDataTableController =
-      FlutterFlowDataTableController<Participants2Record>();
 
   @override
   void initState(BuildContext context) {
