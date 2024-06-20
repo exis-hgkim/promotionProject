@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
 class ParticipantsRecord extends FirestoreRecord {
   ParticipantsRecord._(
@@ -50,15 +50,17 @@ class ParticipantsRecord extends FirestoreRecord {
   String get responsibility => _responsibility ?? '';
   bool hasResponsibility() => _responsibility != null;
 
-  // "info_start_date" field.
-  DateTime? _infoStartDate;
-  DateTime? get infoStartDate => _infoStartDate;
-  bool hasInfoStartDate() => _infoStartDate != null;
-
   // "use_yn" field.
   String? _useYn;
   String get useYn => _useYn ?? '';
   bool hasUseYn() => _useYn != null;
+
+  // "expiration_date" field.
+  String? _expirationDate;
+  String get expirationDate => _expirationDate ?? '';
+  bool hasExpirationDate() => _expirationDate != null;
+
+  DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
@@ -68,12 +70,17 @@ class ParticipantsRecord extends FirestoreRecord {
     _rank = snapshotData['rank'] as String?;
     _department = snapshotData['department'] as String?;
     _responsibility = snapshotData['responsibility'] as String?;
-    _infoStartDate = snapshotData['info_start_date'] as DateTime?;
     _useYn = snapshotData['use_yn'] as String?;
+    _expirationDate = snapshotData['expiration_date'] as String?;
   }
 
-  static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('participants');
+  static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
+      parent != null
+          ? parent.collection('participants')
+          : FirebaseFirestore.instance.collectionGroup('participants');
+
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('participants').doc(id);
 
   static Stream<ParticipantsRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ParticipantsRecord.fromSnapshot(s));
@@ -114,8 +121,8 @@ Map<String, dynamic> createParticipantsRecordData({
   String? rank,
   String? department,
   String? responsibility,
-  DateTime? infoStartDate,
   String? useYn,
+  String? expirationDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -126,8 +133,8 @@ Map<String, dynamic> createParticipantsRecordData({
       'rank': rank,
       'department': department,
       'responsibility': responsibility,
-      'info_start_date': infoStartDate,
       'use_yn': useYn,
+      'expiration_date': expirationDate,
     }.withoutNulls,
   );
 
@@ -147,8 +154,8 @@ class ParticipantsRecordDocumentEquality
         e1?.rank == e2?.rank &&
         e1?.department == e2?.department &&
         e1?.responsibility == e2?.responsibility &&
-        e1?.infoStartDate == e2?.infoStartDate &&
-        e1?.useYn == e2?.useYn;
+        e1?.useYn == e2?.useYn &&
+        e1?.expirationDate == e2?.expirationDate;
   }
 
   @override
@@ -160,8 +167,8 @@ class ParticipantsRecordDocumentEquality
         e?.rank,
         e?.department,
         e?.responsibility,
-        e?.infoStartDate,
-        e?.useYn
+        e?.useYn,
+        e?.expirationDate
       ]);
 
   @override

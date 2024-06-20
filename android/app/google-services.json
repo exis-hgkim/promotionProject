@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "709918538020",
-    "project_id": "promotion-project-07mq0z",
-    "storage_bucket": "promotion-project-07mq0z.appspot.com"
+    "project_number": "111109517086",
+    "project_id": "promotion-app-dev",
+    "storage_bucket": "promotion-app-dev.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:709918538020:android:8181199723aa153bcadbb1",
+        "mobilesdk_app_id": "1:111109517086:android:887b6931a990551b86630f",
         "android_client_info": {
-          "package_name": "com.mycompany.promotionproject"
+          "package_name": "com.exissw.promotionproject"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCb2gNMYL-F0yMrGhGOjceD27AiNMoDA2Q"
+          "current_key": "AIzaSyBvJvZaiCMaygrhn72pMeov4OcN5BUne6w"
         }
       ],
       "services": {

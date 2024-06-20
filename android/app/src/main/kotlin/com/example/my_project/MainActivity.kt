@@ -1,4 +1,4 @@
-package com.mycompany.promotionproject
+package com.exissw.promotionproject
 
 import io.flutter.embedding.android.FlutterActivity
 

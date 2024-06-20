@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
 class Participants2Record extends FirestoreRecord {
   Participants2Record._(
@@ -60,6 +60,16 @@ class Participants2Record extends FirestoreRecord {
   String get useYn => _useYn ?? '';
   bool hasUseYn() => _useYn != null;
 
+  // "created_by" field.
+  DocumentReference? _createdBy;
+  DocumentReference? get createdBy => _createdBy;
+  bool hasCreatedBy() => _createdBy != null;
+
+  // "expiration_date" field.
+  DateTime? _expirationDate;
+  DateTime? get expirationDate => _expirationDate;
+  bool hasExpirationDate() => _expirationDate != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _phoneNumber = snapshotData['phone_number'] as String?;
@@ -70,6 +80,8 @@ class Participants2Record extends FirestoreRecord {
     _responsibility = snapshotData['responsibility'] as String?;
     _infoStartDate = snapshotData['info_start_date'] as DateTime?;
     _useYn = snapshotData['use_yn'] as String?;
+    _createdBy = snapshotData['created_by'] as DocumentReference?;
+    _expirationDate = snapshotData['expiration_date'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -116,6 +128,8 @@ Map<String, dynamic> createParticipants2RecordData({
   String? responsibility,
   DateTime? infoStartDate,
   String? useYn,
+  DocumentReference? createdBy,
+  DateTime? expirationDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -128,6 +142,8 @@ Map<String, dynamic> createParticipants2RecordData({
       'responsibility': responsibility,
       'info_start_date': infoStartDate,
       'use_yn': useYn,
+      'created_by': createdBy,
+      'expiration_date': expirationDate,
     }.withoutNulls,
   );
 
@@ -148,7 +164,9 @@ class Participants2RecordDocumentEquality
         e1?.department == e2?.department &&
         e1?.responsibility == e2?.responsibility &&
         e1?.infoStartDate == e2?.infoStartDate &&
-        e1?.useYn == e2?.useYn;
+        e1?.useYn == e2?.useYn &&
+        e1?.createdBy == e2?.createdBy &&
+        e1?.expirationDate == e2?.expirationDate;
   }
 
   @override
@@ -161,7 +179,9 @@ class Participants2RecordDocumentEquality
         e?.department,
         e?.responsibility,
         e?.infoStartDate,
-        e?.useYn
+        e?.useYn,
+        e?.createdBy,
+        e?.expirationDate
       ]);
 
   @override

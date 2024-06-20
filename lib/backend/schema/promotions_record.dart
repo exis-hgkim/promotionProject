@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
 class PromotionsRecord extends FirestoreRecord {
   PromotionsRecord._(
@@ -30,11 +30,6 @@ class PromotionsRecord extends FirestoreRecord {
   String get promotionName => _promotionName ?? '';
   bool hasPromotionName() => _promotionName != null;
 
-  // "type" field.
-  String? _type;
-  String get type => _type ?? '';
-  bool hasType() => _type != null;
-
   // "host" field.
   String? _host;
   String get host => _host ?? '';
@@ -49,21 +44,6 @@ class PromotionsRecord extends FirestoreRecord {
   String? _description;
   String get description => _description ?? '';
   bool hasDescription() => _description != null;
-
-  // "week" field.
-  String? _week;
-  String get week => _week ?? '';
-  bool hasWeek() => _week != null;
-
-  // "create_user" field.
-  String? _createUser;
-  String get createUser => _createUser ?? '';
-  bool hasCreateUser() => _createUser != null;
-
-  // "create_date" field.
-  DateTime? _createDate;
-  DateTime? get createDate => _createDate;
-  bool hasCreateDate() => _createDate != null;
 
   // "field" field.
   List<String>? _field;
@@ -80,26 +60,34 @@ class PromotionsRecord extends FirestoreRecord {
   DateTime? get lastModifiedDate => _lastModifiedDate;
   bool hasLastModifiedDate() => _lastModifiedDate != null;
 
-  // "uid" field.
-  String? _uid;
-  String get uid => _uid ?? '';
-  bool hasUid() => _uid != null;
+  // "created_user" field.
+  String? _createdUser;
+  String get createdUser => _createdUser ?? '';
+  bool hasCreatedUser() => _createdUser != null;
+
+  // "created_date" field.
+  DateTime? _createdDate;
+  DateTime? get createdDate => _createdDate;
+  bool hasCreatedDate() => _createdDate != null;
+
+  // "participation_method" field.
+  String? _participationMethod;
+  String get participationMethod => _participationMethod ?? '';
+  bool hasParticipationMethod() => _participationMethod != null;
 
   void _initializeFields() {
     _startDate = snapshotData['start_date'] as DateTime?;
     _endDate = snapshotData['end_date'] as DateTime?;
     _promotionName = snapshotData['promotion_name'] as String?;
-    _type = snapshotData['type'] as String?;
     _host = snapshotData['host'] as String?;
     _organizer = snapshotData['organizer'] as String?;
     _description = snapshotData['description'] as String?;
-    _week = snapshotData['week'] as String?;
-    _createUser = snapshotData['create_user'] as String?;
-    _createDate = snapshotData['create_date'] as DateTime?;
     _field = getDataList(snapshotData['field']);
     _lastModifiedUser = snapshotData['last_modified_user'] as String?;
     _lastModifiedDate = snapshotData['last_modified_date'] as DateTime?;
-    _uid = snapshotData['uid'] as String?;
+    _createdUser = snapshotData['created_user'] as String?;
+    _createdDate = snapshotData['created_date'] as DateTime?;
+    _participationMethod = snapshotData['participation_method'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -140,32 +128,28 @@ Map<String, dynamic> createPromotionsRecordData({
   DateTime? startDate,
   DateTime? endDate,
   String? promotionName,
-  String? type,
   String? host,
   String? organizer,
   String? description,
-  String? week,
-  String? createUser,
-  DateTime? createDate,
   String? lastModifiedUser,
   DateTime? lastModifiedDate,
-  String? uid,
+  String? createdUser,
+  DateTime? createdDate,
+  String? participationMethod,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'start_date': startDate,
       'end_date': endDate,
       'promotion_name': promotionName,
-      'type': type,
       'host': host,
       'organizer': organizer,
       'description': description,
-      'week': week,
-      'create_user': createUser,
-      'create_date': createDate,
       'last_modified_user': lastModifiedUser,
       'last_modified_date': lastModifiedDate,
-      'uid': uid,
+      'created_user': createdUser,
+      'created_date': createdDate,
+      'participation_method': participationMethod,
     }.withoutNulls,
   );
 
@@ -181,17 +165,15 @@ class PromotionsRecordDocumentEquality implements Equality<PromotionsRecord> {
     return e1?.startDate == e2?.startDate &&
         e1?.endDate == e2?.endDate &&
         e1?.promotionName == e2?.promotionName &&
-        e1?.type == e2?.type &&
         e1?.host == e2?.host &&
         e1?.organizer == e2?.organizer &&
         e1?.description == e2?.description &&
-        e1?.week == e2?.week &&
-        e1?.createUser == e2?.createUser &&
-        e1?.createDate == e2?.createDate &&
         listEquality.equals(e1?.field, e2?.field) &&
         e1?.lastModifiedUser == e2?.lastModifiedUser &&
         e1?.lastModifiedDate == e2?.lastModifiedDate &&
-        e1?.uid == e2?.uid;
+        e1?.createdUser == e2?.createdUser &&
+        e1?.createdDate == e2?.createdDate &&
+        e1?.participationMethod == e2?.participationMethod;
   }
 
   @override
@@ -199,17 +181,15 @@ class PromotionsRecordDocumentEquality implements Equality<PromotionsRecord> {
         e?.startDate,
         e?.endDate,
         e?.promotionName,
-        e?.type,
         e?.host,
         e?.organizer,
         e?.description,
-        e?.week,
-        e?.createUser,
-        e?.createDate,
         e?.field,
         e?.lastModifiedUser,
         e?.lastModifiedDate,
-        e?.uid
+        e?.createdUser,
+        e?.createdDate,
+        e?.participationMethod
       ]);
 
   @override
